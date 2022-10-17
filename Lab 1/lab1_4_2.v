@@ -6,9 +6,9 @@ module bcdto7segment_dataflow (
     output reg [6:0] seg
 );
 
-an = 7'b1111110 // enable only the left most segment display
+assign an = 8'b11111110; // enable only the left most segment display
 
-always@(*):
+always@(*)
 begin
     case(x)
         4'b0000 : seg = 7'b1000000;
@@ -22,7 +22,7 @@ begin
         4'b0111 : seg = 7'b1111000;
         4'b1000 : seg = 7'b0000000;
         4'b1001 : seg = 7'b0010000;
-        default : seg = 7'b1111111;
+        default : seg = 7'b1111001; // letter E for error
     endcase 
 end
 
