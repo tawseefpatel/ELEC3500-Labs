@@ -2,10 +2,10 @@
 
 module two_to_five(
     input [3:0] x,
-    output [4:0] y
+    output reg [4:0] y
 );
 
-always@(*):
+always@(*)
 begin
     case(x) // case assignment
         4'b0000 : y = 5'b00011 ;
