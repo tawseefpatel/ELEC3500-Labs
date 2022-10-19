@@ -18,11 +18,11 @@ and (fa2_out1, a[1], b[1]), (fa2_out2, a[1], cout1), (fa2_out3, cout1, b[0]);
 or (cout2, fa2_out1, fa2_out2, fa2_out3);
 
 xor (s[2], a[2], b[2], cout2);
-and (fa3_out1, a[2], b[2]), (fa3_out2, a[2], cout1), (fa3_out3, cout1, b[2]);
+and (fa3_out1, a[2], b[2]), (fa3_out2, a[2], cout2), (fa3_out3, cout2, b[2]);
 or (cout3, fa3_out1, fa3_out2, fa3_out3);
 
-xor (s[3], a[3], b[3], cout1);
-and (fa4_out1, a[3], b[3]), (fa4_out2, a[3], cout1), (fa4_out3, cout1, b[3]);
+xor (s[3], a[3], b[3], cout3);
+and (fa4_out1, a[3], b[3]), (fa4_out2, a[3], cout3), (fa4_out3, cout3, b[3]);
 or (cout, fa4_out1, fa4_out2, fa4_out3);
 
 
