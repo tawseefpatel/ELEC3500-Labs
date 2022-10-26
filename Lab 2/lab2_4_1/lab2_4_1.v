@@ -1,4 +1,25 @@
-`timescale 1ns/1ps
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/20/2022 08:15:31 PM
+// Design Name: 
+// Module Name: fulladder_dataflow
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
 
 module cla_dataflow (
     input [3:0]a,
@@ -11,11 +32,11 @@ module cla_dataflow (
 wire [3:0] p;
 wire [3:0] g;
 wire [3:0] c;
-c[0] = cin;
-c[1] = g[0] + p[0] | cin;
-c[2] = g[1] + p[1] | c[1];
-c[3] = g[2] + p[2] | c[2];
-cout = g[3] + p[3] | c[3];
+assign c[0] = cin;
+assign c[1] = g[0] + p[0] & cin;  //g[0] | (p[0] & cin); 
+assign c[2] = g[1] + p[1] & c[1]; //g[1] | (g[0] & p[1]) | (cin & p[0] & p[1]);
+assign c[3] = g[2] + p[2] & c[2]; //g[2] | (g[1] & g[2]) | (g[0] & g[1] & g[2]) | (cin & p[0] & p[1] & p[2]) ;
+assign cout = g[3] + p[3] & c[3]; //g[3] | (g[2] & g[3]) | (g[1] & p[2] & p[3]) | (g[0] & p[1] & p[2] & p[3]) | (cin & p[0] & p[1] & p[2] & p[2]);
 
 fulladder_dataflow fad_1(
     .a(a[0]),
@@ -23,7 +44,7 @@ fulladder_dataflow fad_1(
     .cin(c[0]),
     .s(s[0]),
     .p(p[0]),
-    .g(g[0]),
+    .g(g[0])
 );
 
 fulladder_dataflow fad_2(
@@ -32,7 +53,7 @@ fulladder_dataflow fad_2(
     .cin(c[1]),
     .s(s[1]),
     .p(p[1]),
-    .g(g[1]),
+    .g(g[1])
 );
 
 fulladder_dataflow fad_3(
@@ -41,7 +62,7 @@ fulladder_dataflow fad_3(
     .cin(c[2]),
     .s(s[2]),
     .p(p[2]),
-    .g(g[2]),
+    .g(g[2])
 );
 
 fulladder_dataflow fad_4(
@@ -50,7 +71,7 @@ fulladder_dataflow fad_4(
     .cin(c[3]),
     .s(s[3]),
     .p(p[3]),
-    .g(g[3]),
+    .g(g[3])
 );
 
 endmodule

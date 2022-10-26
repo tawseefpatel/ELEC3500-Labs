@@ -1,10 +1,30 @@
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/19/2022 11:44:52 AM
+// Design Name: 
+// Module Name: top
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
 
 module top(
-    input [3:0] bin_val, // update constraint file variable
-    output reg [6:0] seg, // update constraint file variable
+    input  [3:0] bin_val,
+    output  [6:0] seg,
     output [7:0] an,
-    output z
+    output  z
 );
 wire [3:0] m_out;
 

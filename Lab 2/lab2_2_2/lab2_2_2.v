@@ -1,4 +1,24 @@
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/19/2022 12:15:55 PM
+// Design Name: 
+// Module Name: lab2_2_2
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
 
 module two_to_five(
     input [3:0] x,
@@ -18,6 +38,7 @@ begin
         4'b0111 : y = 5'b10010 ; 
         4'b1000 : y = 5'b10100 ;
         4'b1001 : y = 5'b11000 ;
+        default : y = 5'000000 ;
     endcase
 end
 

@@ -1,4 +1,23 @@
-`timescale 1ns/1ps
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/20/2022 08:15:31 PM
+// Design Name: 
+// Module Name: fulladder_dataflow
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
 
 module fulladder_dataflow(
@@ -6,8 +25,8 @@ module fulladder_dataflow(
     output s, p, g
 );
 
-s = ^{a, b, cin};
-p = a + b;
-g = a | b; 
+assign s = ^{a, b, cin};
+assign p = a + b;
+assign g = a | b; 
     
 endmodule
