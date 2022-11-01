@@ -11,43 +11,38 @@
 
 module ass2_q1 (
     input x, y, clk, reset,
-    output z
+    output reg z
 );
 
 reg [2:0] current_state, next_state;
-// parameter S00 = 0; S10 = 1; S11 = 2; S01 = 3;
+parameter S00 = 0, S10 = 1, S11 = 2, S01 = 3;
 
   always @(*) begin
     // assuming posedge reset
-    if (reset): // if negedge reset: if (!reset)
-        next_state = S00
+    if (reset) // if negedge reset: if (!reset)
+        next_state = S00;
     
-    if (clk):
+    if (clk)
         current_state <= next_state;
 
     case(current_state)
-    S01 : begin z=1; next_state = S00; end
-        if (x == 1)
-            S00 : begin z=0; next_state = S00; end
-            if (y == 1)
-                S11 : begin z=0; next_state = S11; end
-            else: 
-                s11 : begin z=0; next_state = S00; end
+    S01 :                   begin z=1; next_state = S00; end
+    
+    S00 :   if(x)           begin z=0; next_state = S00; end 
+            else            begin z=0; next_state = S10; end
+    
+    S11 :   if(x & y)       begin z=0; next_state = S11; end 
+            else if(x & !y) begin z=0; next_state = S00; end 
+            else if(!x)     begin z=0; next_state = S01; end
+    
+    S10 :   if(!y)          begin z=1; next_state = S00; end 
+            else            begin z=1; next_state = S11; end
 
-        else if (x == 0)
-            S00 : begin z=0; next_state = S10; end
-            S11 : begin z=0; next_state = S01; end
-
-        else if (y == 0)
-            S10 : begin z=1; next_state = S00; end
-
-        else if (y == 1)
-            S10 : begin z=1; next_state = S11; end
     endcase 
   end
 
-    // always @(posedge clk ) begin
-    //     current_state <= next_state;
-    // end
+//    always @(posedge clk ) begin
+//        current_state <= next_state;
+//    end
 
 endmodule

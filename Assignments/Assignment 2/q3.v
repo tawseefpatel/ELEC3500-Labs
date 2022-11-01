@@ -13,19 +13,6 @@ module a_squared (
     input [2:0] a,
     output [4:0] y
 );
-    // reg  [4:0] y;
-    // wire [2:0] a
-    // always @(*) begin
-    //     y=0;
-    //     case (a)
-    //         3'b000 : y=0; 0 0000
-    //         3'b001 : y=1; 0 0001
-    //         3'b010 : y=4; 0 0100
-    //         3'b011 : y=9; 0 1001
-    //         3'b100 : y=16;1 0000
-    //         default: y=0; 0 0000
-    //     endcase
-    // end
 
 assign y[0] = a[0] & !a[2];
 assign y[1] = 0;

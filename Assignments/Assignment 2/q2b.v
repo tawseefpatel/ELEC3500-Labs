@@ -12,9 +12,9 @@
 module ass2_q2b_24_to_1_mux (
     input [23:0] x,
     input [4:0] sel,
-    output reg out
-)
-    reg [3:0] connects;
+    output wire out
+);
+    wire [3:0] connects;
 
     ass2_q2a_6_to_1_mux mux1(.in(x[5:0])   , .sel(sel[2:0]) , .out(connects[0]));
     ass2_q2a_6_to_1_mux mux2(.in(x[11:6])  , .sel(sel[2:0]) , .out(connects[1]));
