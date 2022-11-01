@@ -26,7 +26,7 @@ module register_sync_res_load_testbench ();
 
     initial begin
         clk = 1'b0;
-        forever #1 clk = ~clk; // clock generation
+        forever #1 clk = !clk; // clock generation
     end
 
     initial begin
@@ -35,17 +35,34 @@ module register_sync_res_load_testbench ();
     end
 
     initial begin
+        load = 0;
+        forever #2 load = !load;
+    end
+
+    initial begin
         D = 0; 
         load = 0;
 
         // set the data word to B and load
+        #10 D = 4'b0001;
+        #10 D = 4'b0010;
+        #10 D = 4'b0000;
+        #10 D = 4'b0001;
+        #10 D = 4'b0010;
+        #10 D = 4'b0011; 
+        #10 D = 4'b0100;
+        #10 D = 4'b0101; 
+        #10 D = 4'b0110;
+        #10 D = 4'b0111;
+        #10 D = 4'b1000;
         #10 D = 4'b1001;
-        $display("Reset = 1: Expected: 0x0000. Recieved: %b", Q);
-        #2  load = 1;
-        #2  load = 0;
-        $display("Reset = 0: Expected: 0x1001. Recieved: %b", Q);
+        #10 D = 4'b1010;
+        #10 D = 4'b1011;
+        #10 D = 4'b1100;
+        #10 D = 4'b1101;
+        #10 D = 4'b1110;
+        #10 D = 4'b1111;
 
-        
         $finish;
     end
 endmodule
