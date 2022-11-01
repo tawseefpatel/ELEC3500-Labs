@@ -20,18 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module lab3_3_1(
-    input [2:0] a, 
-    input [2:0] b,
+    input [1:0] a, 
+    input [1:0] b,
     output lt, gt, eq
-)
+);
 reg [2:0] rom[15:0];
-reg [2:0] rom_data;
+wire [2:0] rom_data;
 
 assign rom_data = rom[{a, b}];
 initial $readmemb("ROM_data.txt", rom, 0, 15);
 
-assign gt = rom_data[2];
-assign eq = rom_data[1];
-assign lt = rom_data[0];
+assign gt = rom_data[1];
+assign eq = rom_data[0];
+assign lt = rom_data[2];
 
 endmodule
