@@ -18,7 +18,6 @@ reg [2:0] current_state, next_state;
 parameter S00 = 0, S10 = 1, S11 = 2, S01 = 3;
 
   always @(current_state or x or y) begin
-
     case(current_state)
       S01 :                   next_state = S00; 
       
@@ -33,20 +32,18 @@ parameter S00 = 0, S10 = 1, S11 = 2, S01 = 3;
               else            next_state = S11; 
 
       default : next_state = S00;
-      
     endcase 
   end
-
+  
   always @(posedge clk or negedge reset) begin
-    // assuming posedge reset
-    if (reset) // if negedge reset: if (!reset)
-      next_state = S00;
-    else:
+    if (!reset)
+      next_state <= S00;
+    else
       current_state <= next_state;
   end
-
+  
   always @(current_state) begin
-    case 
+    case (current_state)
       S00 : z = 0;
       S01 : z = 1;
       S10 : z = 1;
