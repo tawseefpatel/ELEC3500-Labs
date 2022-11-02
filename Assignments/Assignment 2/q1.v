@@ -17,32 +17,42 @@ module ass2_q1 (
 reg [2:0] current_state, next_state;
 parameter S00 = 0, S10 = 1, S11 = 2, S01 = 3;
 
-  always @(*) begin
+  always @(current_state or x or y or reset) begin
     // assuming posedge reset
     if (reset) // if negedge reset: if (!reset)
         next_state = S00;
-    
-    if (clk)
-        current_state <= next_state;
 
     case(current_state)
-    S01 :                   begin z=1; next_state = S00; end
-    
-    S00 :   if(x)           begin z=0; next_state = S00; end 
-            else            begin z=0; next_state = S10; end
-    
-    S11 :   if(x & y)       begin z=0; next_state = S11; end 
-            else if(x & !y) begin z=0; next_state = S00; end 
-            else if(!x)     begin z=0; next_state = S01; end
-    
-    S10 :   if(!y)          begin z=1; next_state = S00; end 
-            else            begin z=1; next_state = S11; end
+      S01 :                   next_state = S00; 
+      
+      S00 :   if(x)           next_state = S00;  
+              else            next_state = S10; 
+      
+      S11 :   if(x & y)       next_state = S11; 
+              else if(x & !y) next_state = S00; 
+              else if(!x)     next_state = S01;
+      
+      S10 :   if(!y)          next_state = S00;  
+              else            next_state = S11; 
 
+      default : next_state = S00;
+      
     endcase 
   end
 
-//    always @(posedge clk ) begin
-//        current_state <= next_state;
-//    end
+  always @(posedge clk) begin
+    current_state <= next_state;
+  end
+
+  always @(current_state) begin
+    case 
+      S00 : z = 0;
+      S01 : z = 1;
+      S10 : z = 1;
+      S11 : z = 0; 
+
+      default : z = 0;
+    endcase
+  end
 
 endmodule
