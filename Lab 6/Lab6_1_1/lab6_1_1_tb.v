@@ -23,26 +23,25 @@ module register_sync_res_load_testbench ();
         .load(load),
         .Q(Q)
     );
-
+    
     initial begin
         clk = 1'b0;
-        forever #1 clk = !clk; // clock generation forever
+        forever #1 clk = ~clk; // clock generation
     end
-
-    initial begin
+    
+    initial begin 
         reset = 1'b1;
-        #5 reset = 1'b0; // reset goes to 0 after 5 unit of time
+        #5 reset = 1'b0;
     end
-
+    
     initial begin
         load = 0;
-        forever #2 load = !load; //load goes on and off every 5s
+        forever #2 load = ~load;
     end
-
-    integer  i;
+    integer i;
     initial begin
         D = 0;
-        for (i=0; i<31; i = i + 1) begin // count from 0 to 30
+        for (i=0; i<31; i= i + 1) begin
             #10 
             D = i;
         end
