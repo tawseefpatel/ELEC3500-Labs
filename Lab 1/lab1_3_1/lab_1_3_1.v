@@ -1,22 +1,11 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Student: Tawseef Patel 101145333 & Saad Babur 101123210
 // 
-// Create Date: 10/14/2022 05:29:04 PM
-// Design Name: 
-// Module Name: lab_1_3_1
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Create Date: 10/14/2022
+// Design Name: lab1_3_1.v 
+// Module Name: lab1_3_1
+// Project Name: Lab 1_3
 //////////////////////////////////////////////////////////////////////////////////
 
 

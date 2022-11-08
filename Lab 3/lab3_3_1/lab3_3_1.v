@@ -1,22 +1,12 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Student: Tawseef Patel 101145333
 // 
-// Create Date: 10/20/2022 08:15:31 PM
-// Design Name: 
-// Module Name: fulladder_dataflow
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Create Date: 10/20/2022 
+// Design Name: Lab3_3_1.v
+// Module Name: lab3_3_1
+// Project Name: Lab3_3_1
+//
 //////////////////////////////////////////////////////////////////////////////////
 
 module lab3_3_1(

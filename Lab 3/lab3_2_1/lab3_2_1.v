@@ -1,24 +1,13 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Student: Tawseef Patel 101145333
 // 
-// Create Date: 10/21/2022 03:59:33 PM
-// Design Name: 
+// Create Date: 10/21/2022 
+// Design Name: Lab3_2_1.v
 // Module Name: lab3_2_1
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Project Name: Lab3_2_1
+//
 //////////////////////////////////////////////////////////////////////////////////
-
 
 module lab3_2_1(
     input [7:0]x,

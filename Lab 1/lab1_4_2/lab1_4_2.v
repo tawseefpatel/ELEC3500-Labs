@@ -1,4 +1,12 @@
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Student: Tawseef Patel 101145333 & Saad Babur 101123210
+// 
+// Create Date: 10/19/2022
+// Design Name: lab1_4_2.v 
+// Module Name: bcdto7segment_dataflow
+// Project Name: Lab 1_4_2
+//////////////////////////////////////////////////////////////////////////////////
 
 module bcdto7segment_dataflow (
     input [3:0] x,
