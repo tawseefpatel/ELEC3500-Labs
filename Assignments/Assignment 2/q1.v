@@ -14,30 +14,30 @@ module ass2_q1 (
     output reg z
 );
 
-reg [2:0] current_state, next_state;
-parameter S00 = 0, S10 = 1, S11 = 2, S01 = 3;
+reg [1:0] current_state, next_state;
+parameter S00 = 0, S01 = 1, S10 = 2, S11 = 3;
 
   always @(current_state or x or y) begin
     case(current_state)
-      S01 :                   next_state = S00; 
+      S01 :                  next_state = S00; 
       
-      S00 :   if(x)           next_state = S00;  
-              else            next_state = S10; 
+      S00 :   if(!x)         next_state = S10;  
+              else           next_state = S00; 
       
-      S11 :   if(x & y)       next_state = S11; 
-              else if(x & !y) next_state = S00; 
-              else if(!x)     next_state = S01;
+      S11 :   if(x & !y)     next_state = S00; 
+              else if(!x)    next_state = S01;
+              else           next_state = S11; // includes x=1,y=1
       
-      S10 :   if(!y)          next_state = S00;  
-              else            next_state = S11; 
-
+      S10 :   if(!y)         next_state = S00;  
+              else           next_state = S11;
+            
       default : next_state = S00;
     endcase 
   end
   
   always @(posedge clk or negedge reset) begin
     if (!reset)
-      next_state <= S00;
+      current_state <= S00;
     else
       current_state <= next_state;
   end
