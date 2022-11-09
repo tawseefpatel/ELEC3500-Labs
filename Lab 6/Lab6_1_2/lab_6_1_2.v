@@ -1,22 +1,12 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Student: Tawseef Patel 101145333
 // 
-// Create Date: 10/20/2022 08:15:31 PM
-// Design Name: 
+// Create Date: 08/11/2022 
+// Design Name: Lab 6_1_2
 // Module Name: register_sync_reset_load
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Project Name: Lab 6_1_2
+//
 //////////////////////////////////////////////////////////////////////////////////
 
 

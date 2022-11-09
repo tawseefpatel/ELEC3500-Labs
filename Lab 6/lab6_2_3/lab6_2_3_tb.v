@@ -1,24 +1,13 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Student: Tawseef Patel 101145333
 // 
-// Create Date: 11/08/2022
-// Design Name: 
-// Module Name: lab6_2_33_tb
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Create Date: 08/11/2022 
+// Design Name: Lab 6_1_3
+// Module Name: lab6_2_3_tb
+// Project Name: Lab 6_1_3
+//
 //////////////////////////////////////////////////////////////////////////////////
-
 
 module lab6_2_3_tb(
     );
@@ -31,7 +20,7 @@ module lab6_2_3_tb(
  wire [3:0] Q;
    
   
- lab6_2_33 DUT (.Load(Load),.Enable(Enable),.Clear(Clear),.clk(clk),.Q(Q));
+ lab6_2_3 DUT (.Load(Load),.Enable(Enable),.Clear(Clear),.clk(clk),.Q(Q));
    
     initial 
     begin

@@ -1,22 +1,12 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Student: Tawseef Patel 101145333
 // 
-// Create Date: 11/04/2022 03:23:07 PM
-// Design Name: 
-// Module Name: register_sync_set_reset_load_tb
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Create Date: 08/11/2022 
+// Design Name: Lab 6_1_2
+// Module Name: register_sync_reset_load_tb
+// Project Name: Lab 6_1_2
+//
 //////////////////////////////////////////////////////////////////////////////////
 
 module register_sync_reset_load_tb(
