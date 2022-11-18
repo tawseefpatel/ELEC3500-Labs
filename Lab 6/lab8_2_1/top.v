@@ -32,19 +32,23 @@ module top(
 // digits for display
 wire [3:0] tens_digit;
 wire [3:0] ones_digit;
+wire nine; // high when the ones place is 9\
+wire ninety; 
 
 // clocking wizard DCM
 clk_wiz_0 clockgen_5MHz(
     // Clock out ports
-    .clk_5MHz(clk_5MHz),     // output clk_5MHz
+    .clk_out1 (clk_5MHz),     // output clk_5MHz
     // Status and control signals
     .locked(locked),       // output locked
    // Clock in ports
-    .clk_100MHz(clk_100MHz)
+    .clk_in1(clk_100MHz)
 );      // input clk_100MHz
 
 // more clock division
 wire clk_1Hz;
+wire clk_500Hz;
+
 clock_divider clk_div_1Hz(
     .reset (0),
     .divisor (2500000),
@@ -52,7 +56,6 @@ clock_divider clk_div_1Hz(
     .clk_out (clk_1Hz)
 );
 
-wire clk_500Hz;
 clock_divider clk_div_500Hz(
     .reset (0),
     .divisor (10000),
@@ -61,8 +64,7 @@ clock_divider clk_div_500Hz(
 );
 
 // dual BCD counter
-wire nine; // high when the ones place is 9
-counter_binary_0 ones_ctr (
+c_counter_binary_0 ones_ctr (
     .CLK( clk_1Hz ),          // input wire CLK
     .THRESH0( nine ),  // output wire THRESH0
     .SCLR ( clear_ones ),
@@ -70,8 +72,8 @@ counter_binary_0 ones_ctr (
     .Q(ones_digit)              // output wire [3 : 0] Q
 );
 
-wire ninety; 
-counter_binary_0 tens_ctr (
+
+c_counter_binary_0 tens_ctr (
     .CLK( clk_1Hz ),          // input wire CLK
     .THRESH0( ninety ),  // output wire THRESH0
     .SCLR ( clear_tens ),

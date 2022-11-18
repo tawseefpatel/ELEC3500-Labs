@@ -74,13 +74,13 @@ wire ten;
 lab2_2_1_partA numberthing(
     .v (val),
     .z (ten),
-    .m_out (bcd_digit)
+    .m (bcd_digit)
 );
 
 wire [3:0] decode_digit;
 assign decode_digit = digit;
 bcdto7segment_dataflow decoder (
-    .bcd_in (decode_digit),
+    .x (decode_digit),
     .seg (cathodes)
 );
 

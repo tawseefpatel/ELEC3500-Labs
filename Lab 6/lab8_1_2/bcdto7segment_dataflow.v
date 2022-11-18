@@ -11,11 +11,8 @@
 
 module bcdto7segment_dataflow (
     input [3:0] x,
-    output [7:0] an,
     output reg [6:0] seg
 );
-
-assign an = 8'b11111110; // enable only the left most segment display
 
 always@(*)
 begin

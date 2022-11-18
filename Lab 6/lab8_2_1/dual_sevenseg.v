@@ -32,8 +32,8 @@ module dual_sevenseg(
 reg [3:0] display_digit;
 wire [3:0] bcd_in;
 assign bcd_in = display_digit;
-bcdto7segment disp0(
-    .bcd_in (bcd_in),
+bcdto7segment_dataflow disp0(
+    .x (bcd_in),
     .seg (cathodes)
 );
 

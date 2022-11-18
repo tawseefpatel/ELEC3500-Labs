@@ -1,46 +1,35 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Student: Tawseef Patel 101145333
 // 
-// Create Date: 02/07/2021 12:48:01 PM
-// Design Name: 
-// Module Name: bcdto7segment
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Create Date: 10/19/2022 
+// Design Name: bcdto7segment_dataflow.v
+// Module Name: bcdto7segment_dataflow
+// Project Name: Lab2_2_1
+//
 //////////////////////////////////////////////////////////////////////////////////
 
+module bcdto7segment_dataflow (
+    input [3:0] x,
+    output reg [6:0] seg
+);
 
-module bcdto7segment(
-    input wire [3:0] bcd_in, // bcd input number; MSB in 3
-    output wire [6:0] seg // segment outputs, a-g
-    );
-
-// nicer internal representation so the segments are kinda legible
-// bcd number will be abcd
-wire a, b, c, d;
-assign a = bcd_in[3];
-assign b = bcd_in[2];
-assign c = bcd_in[1];
-assign d = bcd_in[0];
-
-// segment equations
-// inverted sum-of-products because I'm a dummy & didn't notice active-low
-assign seg[0] = ~( a | c | ( b & d ) | ( ~b & ~d ) ); // segment a
-assign seg[1] = ~( ~b | ( c & d ) | ( ~c & ~d )); // segment b
-assign seg[2] = ~( b | ~c | d ); // segment c
-assign seg[3] = ~( a | (c & ~d) | (~b & (c | ~d)) | (b & ~c & d) ); // segment d
-assign seg[4] = ~( ( c & ~d ) | ( ~b & ~d )); // segment e 
-assign seg[5] = ~( a | (~c & ~d) | (b & ~c) | (b & ~d) ); // segment f
-assign seg[6] = ~( a | (b & ~c) | (~b & c) | (c & ~d)); // segment g
+always@(*)
+begin
+    case(x)
+        4'b0000 : seg = 7'b1000000;
+        4'b0001 : seg = 7'b1111001;
+        4'b0010 : seg = 7'b0100100;
+        4'b0011 : seg = 7'b0110000;
+        4'b0100 : seg = 7'b0011001;
+        4'b0101 : seg = 7'b0010010;
+        4'b0100 : seg = 7'b0000010;
+        4'b0110 : seg = 7'b0000010;
+        4'b0111 : seg = 7'b1111000;
+        4'b1000 : seg = 7'b0000000;
+        4'b1001 : seg = 7'b0010000;
+        default : seg = 7'b1111001; // letter E for error
+    endcase 
+end
 
 endmodule

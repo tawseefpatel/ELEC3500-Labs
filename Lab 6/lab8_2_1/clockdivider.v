@@ -21,8 +21,7 @@
 
 
 module clock_divider(
-    input clk_in,
-    input reset,
+    input clk_in, reset,
     input [22:0] divisor,
     output reg clk_out
     );
